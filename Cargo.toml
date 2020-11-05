@@ -1,8 +1,12 @@
 [package]
 name = "spl-token-names"
+description = "A well-known token list on Solana blockchain"
 version = "0.1.0"
 authors = ["Guanqun Lu <guanqun.lu@gmail.com>"]
 edition = "2018"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/guanqun/spl-token-names"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
