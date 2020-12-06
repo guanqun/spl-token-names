@@ -10,7 +10,14 @@ pub struct TokenInfo {
     pub deprecated: bool,
 }
 
-pub const TOKENS: [TokenInfo; 25] = [
+pub const TOKENS: [TokenInfo; 26] = [
+    TokenInfo {
+        token_name: "Wrapped SOL",
+        token_symbol: "SOL",
+        mint_address: "So11111111111111111111111111111111111111112",
+        icon: None,
+        deprecated: false,
+    },
     TokenInfo {
         token_name: "Serum",
         token_symbol: "SRM",
