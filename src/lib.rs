@@ -1,14 +1,11 @@
-/// The list of well-known tokens that are support on sollet.io
-/// The list is converted from https://github.com/project-serum/spl-token-wallet/blob/master/src/utils/tokens/names.js
+use serde_derive::{Deserialize, Serialize};
 
-
-pub fn well_known_list_providers() -> &[&'static str] {
+pub fn well_known_list_providers() -> &'static [&'static str] {
     &[
         "https://api.raydium.io/cache/solana-token-list",
         "https://raw.githubusercontent.com/solana-labs/token-list/main/src/tokens/solana.tokenlist.json",
     ]
 }
-
 
 #[derive(Debug, Copy, Clone)]
 pub struct TokenInfo {
@@ -20,24 +17,24 @@ pub struct TokenInfo {
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct DynamicTokenList {
     pub tokens: Vec<DynamicTokenInfo>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct DynamicTokenInfo {
     pub address: String,
     pub symbol: String,
     pub name: String,
     pub decimals: u8,
+    #[allow(non_snake_case)]
     pub logoURI: String,
     pub tags: Vec<String>,
 }
 
-
-pub const TOKENS: [TokenInfo; 26] = [
+/// The list of well-known tokens that are support on sollet.io
+/// The list is converted from https://github.com/project-serum/spl-token-wallet/blob/master/src/utils/tokens/names.js
+pub const POPULAR_TOKENS: [TokenInfo; 26] = [
     TokenInfo {
         token_name: "Wrapped SOL",
         token_symbol: "SOL",
