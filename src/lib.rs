@@ -1,6 +1,15 @@
 /// The list of well-known tokens that are support on sollet.io
 /// The list is converted from https://github.com/project-serum/spl-token-wallet/blob/master/src/utils/tokens/names.js
 
+
+pub fn well_known_list_providers() -> &[&'static str] {
+    &[
+        "https://api.raydium.io/cache/solana-token-list",
+        "https://raw.githubusercontent.com/solana-labs/token-list/main/src/tokens/solana.tokenlist.json",
+    ]
+}
+
+
 #[derive(Debug, Copy, Clone)]
 pub struct TokenInfo {
     pub token_name: &'static str,
@@ -9,6 +18,24 @@ pub struct TokenInfo {
     pub icon: Option<&'static str>,
     pub deprecated: bool,
 }
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DynamicTokenList {
+    pub tokens: Vec<DynamicTokenInfo>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DynamicTokenInfo {
+    pub address: String,
+    pub symbol: String,
+    pub name: String,
+    pub decimals: u8,
+    pub logoURI: String,
+    pub tags: Vec<String>,
+}
+
 
 pub const TOKENS: [TokenInfo; 26] = [
     TokenInfo {
