@@ -8,6 +8,6 @@ license = "MIT OR Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/guanqun/spl-token-names"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+serde = { version = "1.0.133"}
+serde_derive = { version = "1.0.133"}
